@@ -1,0 +1,78 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio
+.vs/
+.vscode/
+
+# Rider
+.idea/
+
+# DotCover
+*.dotCover
+
+# Visual Studio Code
+.vscode/*
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+
+# Test results
+TestResults/
+
+# Coverlet
+coverage*
+*.coverage
+*.coveragexml
+
+# BenchmarkDotNet
+BenchmarkDotNet.Artifacts/
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ReSharper
+_ReSharper*/
+*.ReSharper
+
+# JetBrains Rider cache
+.idea/
+
+# Publish output
+publish/
+
+# Azure / Web deploy
+*.Publish.xml
+*.pubxml
+*.publishproj
+
+# ASP.NET Core
+appsettings.Development.json
+
+# Node (if ever added)
+node_modules/
+
+# Temp files
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# Crash dumps
+*.dmp
