@@ -1,0 +1,37 @@
+@page "/"
+@using DevStringTheory.App.Fundamental
+@using DevStringTheory.App.Universe
+
+<PageTitle>Dev String Theory</PageTitle>
+
+<h1>Dev String Theory Explorer</h1>
+<p>Select a vibration mode to see its conceptual explanation card.</p>
+
+<div class="mb-3 d-flex flex-wrap gap-2">
+    @foreach (var mode in modes)
+    {
+        <button class="btn btn-primary" @onclick="() => SelectMode(mode)">@mode</button>
+    }
+</div>
+
+@if (selected is not null)
+{
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">@selected.Name</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Vibration explanation</h6>
+            <p class="card-text"><strong>Developer analogy:</strong> @selected.Analogy</p>
+            <p class="card-text"><strong>Physics note:</strong> @selected.RealWorldNote</p>
+        </div>
+    </div>
+}
+
+@code {
+    private readonly IReadOnlyList<string> modes = StringFactory.ListAvailableVibrations();
+    private StringBase? selected;
+
+    private void SelectMode(string mode)
+    {
+        selected = StringFactory.CreateVibration(mode);
+    }
+}

@@ -2,7 +2,7 @@
 
 namespace DevStringTheory.App.Vibrations
 {
-    sealed class Electron : StringBase
+    public sealed class Electron : StringBase
     {
         public override string Name => "Electron";
         public override string Analogy => "A stable, well-known implementation every app depends on.";

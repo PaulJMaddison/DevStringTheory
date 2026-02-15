@@ -1,0 +1,17 @@
+{
+  "title": "Advanced Conceptual String Lesson",
+  "introduction": "Explore less familiar modes and scripted repetition.",
+  "steps": [
+    {
+      "label": "Weakly interacting mode",
+      "mode": "Neutrino",
+      "explain": true,
+      "repeat": 2
+    },
+    {
+      "label": "Binding dynamics",
+      "mode": "Gluon",
+      "explain": true
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 namespace DevStringTheory.App.Vibrations
 {
-    sealed class Neutrino : StringBase
+    public sealed class Neutrino : StringBase
     {
         public override string Name => "Neutrino";
         public override string Analogy => "A background process that passes through most systems without interacting much.";

@@ -1,0 +1,25 @@
+{
+  "title": "Beginner Universe Walkthrough",
+  "introduction": "This scripted lesson walks from known particles to conceptual string-theory framing.",
+  "steps": [
+    {
+      "label": "Warm-up: direct observation",
+      "mode": "Electron",
+      "explain": true,
+      "commentary": "Start with a familiar particle expression."
+    },
+    {
+      "label": "Contrast with a force carrier",
+      "mode": "Photon",
+      "explain": true,
+      "commentary": "Same underlying abstraction, different role."
+    },
+    {
+      "label": "Introduce conceptual uncertainty",
+      "mode": "Quark",
+      "noise": true,
+      "repeat": 4,
+      "commentary": "Repeated observations can vary in this conceptual model."
+    }
+  ]
+}
