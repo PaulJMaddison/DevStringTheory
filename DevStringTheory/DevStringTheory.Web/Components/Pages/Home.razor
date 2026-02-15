@@ -5,8 +5,23 @@
 <PageTitle>Dev String Theory</PageTitle>
 
 <h1>Dev String Theory Explorer</h1>
-<p>Select a vibration mode to see its conceptual explanation card.</p>
+<p class="lead">One shared story in two languages: C# classes and physics vibrations.</p>
 
+<div class="card mb-4 border-info-subtle">
+    <div class="card-body">
+        <h2 class="h5 card-title">How to read this project</h2>
+        <p class="card-text mb-2">There is one base concept: <code>StringBase</code>.</p>
+        <ul>
+            <li>Different subclasses (<code>Electron</code>, <code>Photon</code>, etc.) represent different vibration patterns.</li>
+            <li>In physics terms, different vibrations of one underlying string appear as different particles.</li>
+            <li>In C# terms, different derived classes from one base type appear as different runtime behaviors.</li>
+            <li><code>StringFactory</code> uses reflection-based runtime discovery (<code>Assembly.GetExecutingAssembly().GetTypes()</code>) to load available modes and instantiate the selected one.</li>
+        </ul>
+        <p class="card-text mb-0"><strong>Takeaway:</strong> physics view = one string, many observed particles; C# view = one base class, many derived types, many observed behaviors at runtime.</p>
+    </div>
+</div>
+
+<p>Select a vibration mode to see the runtime-selected explanation card.</p>
 <div class="mb-3 d-flex flex-wrap gap-2">
     @foreach (var mode in modes)
     {
@@ -16,10 +31,10 @@
 
 @if (selected is not null)
 {
-    <div class="card">
+    <div class="card shadow-sm">
         <div class="card-body">
             <h5 class="card-title">@selected.Name</h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary">Vibration explanation</h6>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Runtime vibration explanation</h6>
             <p class="card-text"><strong>Developer analogy:</strong> @selected.Analogy</p>
             <p class="card-text"><strong>Physics note:</strong> @selected.RealWorldNote</p>
         </div>

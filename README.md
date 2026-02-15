@@ -25,6 +25,7 @@ So when you run this app and select `Electron` or `Photon`, you are not creating
 - If you already understand **inheritance**, imagine each particle as a specialized class.
 - If you understand **polymorphism**, imagine the app handling many particle classes through one common base type.
 - If you understand a **factory**, `StringFactory` is the place where a specific manifestation is chosen at runtime.
+- The factory discovers concrete vibration types through reflection (`Assembly.GetExecutingAssembly().GetTypes()`), then instantiates the chosen derived type behind the shared `StringBase` contract.
 
 ### Why this helps a physics learner
 
