@@ -1,15 +1,13 @@
 ﻿using DevStringTheory.App.Fundamental;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevStringTheory.App.Vibrations
 {
     sealed class Photon : StringBase
     {
+        public override string Name => "Photon";
+        public override string Analogy => "A lightweight event message moving information between services.";
+        public override string RealWorldNote => "Photons are force carriers for electromagnetism and are massless.";
+
         public override void Vibrate() => Console.WriteLine("Vibrating as a Photon!");
     }
-
 }

@@ -1,29 +1,35 @@
 ﻿using DevStringTheory.App.Fundamental;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevStringTheory.App.Universe
 {
     static class StringFactory
     {
+        private static readonly IReadOnlyDictionary<string, Type> VibrationTypes =
+            Assembly.GetExecutingAssembly()
+                .GetTypes()
+                .Where(t => typeof(StringBase).IsAssignableFrom(t) && !t.IsAbstract)
+                .ToDictionary(t => t.Name, t => t, StringComparer.OrdinalIgnoreCase);
+
+        public static IReadOnlyList<string> ListAvailableVibrations() =>
+            VibrationTypes.Keys.OrderBy(x => x, StringComparer.OrdinalIgnoreCase).ToList();
+
         public static StringBase CreateVibration(string typeName)
         {
-            Assembly asm = Assembly.GetExecutingAssembly();
-
-            Type? type = asm.GetTypes()
-                .FirstOrDefault(t =>
-                    typeof(StringBase).IsAssignableFrom(t) &&
-                    !t.IsAbstract &&
-                    string.Equals(t.Name, typeName, StringComparison.Ordinal));
-
-            if (type != null)
+            if (VibrationTypes.TryGetValue(typeName, out var type))
+            {
                 return (StringBase)Activator.CreateInstance(type)!;
+            }
 
-            throw new ArgumentException($"Invalid string vibration type: '{typeName}'");
+            var options = string.Join(", ", ListAvailableVibrations());
+            throw new ArgumentException($"Invalid string vibration type: '{typeName}'. Available options: {options}");
+        }
+
+        public static StringBase CreateRandomVibration(Random random)
+        {
+            var options = ListAvailableVibrations();
+            var choice = options[random.Next(options.Count)];
+            return CreateVibration(choice);
         }
     }
 }
