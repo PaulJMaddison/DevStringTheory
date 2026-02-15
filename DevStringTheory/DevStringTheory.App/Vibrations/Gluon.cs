@@ -2,7 +2,7 @@
 
 namespace DevStringTheory.App.Vibrations
 {
-    sealed class Gluon : StringBase
+    public sealed class Gluon : StringBase
     {
         public override string Name => "Gluon";
         public override string Analogy => "Infrastructure glue code that keeps tightly-coupled modules bound together.";

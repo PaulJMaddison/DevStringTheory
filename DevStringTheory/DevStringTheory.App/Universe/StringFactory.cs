@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace DevStringTheory.App.Universe
 {
-    static class StringFactory
+    public static class StringFactory
     {
         private static readonly IReadOnlyDictionary<string, Type> VibrationTypes =
             Assembly.GetExecutingAssembly()
@@ -30,6 +30,26 @@ namespace DevStringTheory.App.Universe
             var options = ListAvailableVibrations();
             var choice = options[random.Next(options.Count)];
             return CreateVibration(choice);
+        }
+
+        public static StringBase ObserveWithNoise(string preferredTypeName, Random random)
+        {
+            var preferred = CreateVibration(preferredTypeName);
+            if (random.NextDouble() <= 0.7)
+            {
+                return preferred;
+            }
+
+            var options = ListAvailableVibrations()
+                .Where(v => !v.Equals(preferredTypeName, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            if (options.Count == 0)
+            {
+                return preferred;
+            }
+
+            return CreateVibration(options[random.Next(options.Count)]);
         }
     }
 }

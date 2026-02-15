@@ -1,6 +1,6 @@
 namespace DevStringTheory.App.Fundamental
 {
-    abstract class StringBase
+    public abstract class StringBase
     {
         public abstract string Name { get; }
         public abstract string Analogy { get; }

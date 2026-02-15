@@ -2,7 +2,7 @@
 
 namespace DevStringTheory.App.Vibrations
 {
-    sealed class Photon : StringBase
+    public sealed class Photon : StringBase
     {
         public override string Name => "Photon";
         public override string Analogy => "A lightweight event message moving information between services.";

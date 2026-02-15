@@ -2,7 +2,7 @@
 
 namespace DevStringTheory.App.Vibrations
 {
-    sealed class Quark : StringBase
+    public sealed class Quark : StringBase
     {
         public override string Name => "Quark";
         public override string Analogy => "A low-level component that rarely exists alone and usually composes bigger structures.";

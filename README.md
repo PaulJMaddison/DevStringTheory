@@ -1,124 +1,77 @@
 # Dev String Theory — A C# Metaphor for String Theory
 
-This project is a **developer-focused conceptual model** of string theory, implemented in C#.
+This project is a **developer-focused conceptual model** of string theory implemented in C# and ASP.NET/Blazor.
 
-It is **not a physics simulation**.
-It is a teaching and intuition-building exercise that explains the core idea of string theory using concepts software developers already understand:
+It is **not a physics simulation**—it is a teaching tool that maps physics ideas to software concepts like abstraction, polymorphism, runtime discovery, and factories.
 
-- Abstract base classes
-- Polymorphism
-- Dynamic loading
-- Runtime type resolution
-- Factories
+## Projects
 
-The goal is to communicate this idea clearly:
+- `DevStringTheory.App` — Console explorer with timeline, noise, and scripted scenarios.
+- `DevStringTheory.Tests` — Unit-style runtime checks for discovery and error messaging.
+- `DevStringTheory.Web` — Blazor web UI with vibration buttons and explanation cards.
 
-> In string theory, different fundamental particles are not different primitive objects.
-> They are different vibrational manifestations of the same underlying entity.
+## Console Features
 
----
+### Vibration exploration
 
-## What's New (Learning Upgrade)
+- `--list` to discover available vibration modes at runtime.
+- Direct mode selection (`Electron`, `Photon`, etc.).
+- `--random` to pick a runtime manifestation.
+- `--explain` to print developer analogy + conceptual physics note.
 
-The app is now an **interactive explorer**, not just a fixed demo.
+### Timeline mode
 
-### New capabilities
+- `--timeline` prints historical milestones from early particle discoveries through modern string theory eras.
 
-- `--list` to discover all available vibration modes.
-- Direct mode selection (`Electron`, `Photon`, etc.) from the command line.
-- `--random` mode to show runtime emergence.
-- `--explain` mode to print both a developer analogy and a short physics note.
-- Additional vibrations (`Gluon`, `Neutrino`) to broaden the conceptual set.
+### Uncertainty/noise mode
 
-### Example commands
+- `--noise --repeat <n>` performs repeated conceptual observations with probabilistic output (illustrative only).
+
+### Scripted JSON scenarios
+
+- `--scenario <name-or-path>` loads lesson steps from JSON files.
+- Built-in samples are under `DevStringTheory.App/Scenarios`:
+  - `beginner-lesson.json`
+  - `advanced-lesson.json`
+
+## Example commands
 
 ```bash
-dotnet run --project DevStringTheory/DevStringTheory.App -- --list
-dotnet run --project DevStringTheory/DevStringTheory.App -- Photon --explain
-dotnet run --project DevStringTheory/DevStringTheory.App -- --random --explain
+# List modes
+DOTNET_CLI_TELEMETRY_OPTOUT=1 dotnet run --project DevStringTheory/DevStringTheory.App -- --list
+
+# Timeline
+DOTNET_CLI_TELEMETRY_OPTOUT=1 dotnet run --project DevStringTheory/DevStringTheory.App -- --timeline
+
+# Explain a specific mode
+DOTNET_CLI_TELEMETRY_OPTOUT=1 dotnet run --project DevStringTheory/DevStringTheory.App -- Photon --explain
+
+# Noise mode with repeated observations
+DOTNET_CLI_TELEMETRY_OPTOUT=1 dotnet run --project DevStringTheory/DevStringTheory.App -- Electron --noise --repeat 5
+
+# Run scripted lesson
+DOTNET_CLI_TELEMETRY_OPTOUT=1 dotnet run --project DevStringTheory/DevStringTheory.App -- --scenario beginner-lesson
+
+# Run unit checks
+DOTNET_CLI_TELEMETRY_OPTOUT=1 dotnet run --project DevStringTheory/DevStringTheory.Tests
+
+# Launch Blazor UI
+DOTNET_CLI_TELEMETRY_OPTOUT=1 dotnet run --project DevStringTheory/DevStringTheory.Web
 ```
 
----
+## Web UI
 
-## Core Concept
+The Blazor UI provides:
 
-In this model:
+- A button for each discovered vibration mode.
+- A card that displays the selected mode’s developer analogy and physics note.
 
-- There is **one fundamental abstraction**: `StringBase`
-- All particles derive from it
-- The particle you observe is determined by its **vibration**
-- The specific vibration (particle) is **resolved at runtime**
-- This mirrors how string theory proposes that all particles emerge from one underlying structure
+## Concept mapping (code → theory metaphor)
 
----
+- `StringBase` = one underlying string abstraction.
+- Concrete vibration classes (`Electron`, `Photon`, etc.) = different observed manifestations.
+- `StringFactory` = universe-level runtime resolution.
 
-## Concept Mapping (Code → String Theory)
+## Important note
 
-### `StringBase` — The Fundamental String
-
-```csharp
-abstract class StringBase
-{
-    public abstract void Vibrate();
-}
-```
-
-- Represents the fundamental string.
-- The single underlying abstraction.
-- All particles share this same root identity.
-
-### Concrete Vibrations — Runtime Manifestations
-
-`Electron`, `Photon`, `Quark`, `Gluon`, and `Neutrino` are all concrete implementations of `StringBase`.
-
-- Each subclass represents a distinct vibration mode.
-- They are not different primitive objects.
-- They are specialized manifestations of one underlying abstraction.
-
-### `StringFactory` — Universe-Level Resolution
-
-The factory discovers valid vibrations at runtime and materializes the selected one.
-
-- Identity emerges when the vibration is chosen.
-- Choice can be deterministic (explicit mode) or random (`--random`).
-- Invalid selections return discoverable options.
-
----
-
-## Why This Model Exists
-
-This project is designed for **developers**, not physicists.
-
-It explains string theory in terms of:
-
-- Abstractions
-- Polymorphism
-- Runtime behavior
-- Late binding
-- Emergent identity
-
----
-
-## Suggested Next Enhancements
-
-If you want to make this an even better learning project, good next steps are:
-
-1. **Add a timeline mode** (`--timeline`) showing historical milestones from particle discoveries to modern string theory ideas.
-2. **Add uncertainty/noise mode** where repeated observations can produce probabilistic outputs (still conceptual, not physical).
-3. **Add unit tests** that verify runtime type discovery and error messages for unknown modes.
-4. **Add JSON scenario files** that define “universe configurations” and let the app run scripted lessons.
-5. **Add a simple web UI** (Blazor/ASP.NET) with buttons for each vibration and explanation cards.
-
----
-
-## Important Notes
-
-- This remains a **conceptual metaphor**, not a physics simulation.
-- Real string theory relies on advanced mathematics, extra dimensions, and quantum field constraints.
-- The project intentionally focuses on conceptual clarity for developers.
-
----
-
-## One-Sentence Summary
-
-> All particles are different runtime manifestations of the same fundamental abstraction, distinguished by how they vibrate.
+This project remains a **conceptual metaphor** for software developers and does not claim physical modeling accuracy.
