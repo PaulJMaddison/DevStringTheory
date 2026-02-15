@@ -4,6 +4,39 @@ This project is a **developer-focused conceptual model** of string theory implem
 
 It is **not a physics simulation**—it is a teaching tool that maps physics ideas to software concepts like abstraction, polymorphism, runtime discovery, and factories.
 
+## The simple idea (for junior C# devs + junior physics students)
+
+Think of this project like one shared story told in two languages:
+
+- **C# language:** classes, inheritance, and factories.
+- **Physics language:** strings, vibrations, and particles.
+
+The core metaphor is:
+
+1. There is one base concept: a `StringBase` class.
+2. Different subclasses (`Electron`, `Photon`, etc.) represent different **vibration patterns**.
+3. In physics terms, different vibration patterns of one underlying string look like different particles.
+4. In C# terms, different derived classes from one base type look like different runtime behaviors.
+
+So when you run this app and select `Electron` or `Photon`, you are not creating different "things" from scratch—you are seeing different outcomes from one shared foundation.
+
+### Why this helps a C# learner
+
+- If you already understand **inheritance**, imagine each particle as a specialized class.
+- If you understand **polymorphism**, imagine the app handling many particle classes through one common base type.
+- If you understand a **factory**, `StringFactory` is the place where a specific manifestation is chosen at runtime.
+
+### Why this helps a physics learner
+
+- Real string theory says particles may be different vibrational states of a deeper object (a string).
+- This project mirrors that idea in code: one parent abstraction, many child manifestations.
+- The goal is intuition, not perfect physical accuracy.
+
+### One-line takeaway
+
+**Physics view:** one string, many vibrations, many observed particles.
+**C# view:** one base class, many derived types, many observed behaviors.
+
 ## Projects
 
 - `DevStringTheory.App` — Console explorer with timeline, noise, and scripted scenarios.
